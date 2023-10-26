@@ -6,13 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Lista zadań';
+  config: {[key: string]: string | Date} = null;
 
-  get footer(): string {
-    return '© Lista zadań,All rights reserved.';
+  constructor() {
+    setTimeout(()=> {
+      this.config = {
+        title: 'Lista zadań',
+        footer: '© Lista zadań,All rights reserved.',
+        date: new Date().toString()
+      };
+    }, 500);
+
   }
 
-  getDate(): Date {
-    return new Date();
-  }
 }
